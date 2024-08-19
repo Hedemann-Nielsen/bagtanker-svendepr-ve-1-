@@ -1,0 +1,34 @@
+@use "./Styles//Helpers/variables" as *;
+@use "./Styles/Helpers/Mixins" as *;
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+
+body {
+	// height: 100%;
+	display: flex;
+	flex-direction: column;
+	background-color: $color-background;
+}
+
+header {
+	background-image: url("./Assets/slide/bread-full04.jpeg");
+	// background: linear-gradient(0deg, rgba(151, 151, 151, 0) 0%, #6161619c 100%);
+
+	width: 100%;
+	height: 12.321rem;
+	background-position: center bottom;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+footer {
+	width: 100%;
+	height: 20.375rem;
+	background-color: $color-darkgrey;
+}

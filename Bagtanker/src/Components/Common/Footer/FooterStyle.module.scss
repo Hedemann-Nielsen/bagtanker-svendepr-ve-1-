@@ -1,0 +1,64 @@
+@use "../../../Styles/Helpers/Mixins" as *;
+@use "../../../Styles/Helpers/variables" as *;
+@import url("https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap");
+
+.footer {
+	// background-color: $color-background;
+	display: flex;
+	justify-content: space-between;
+	padding: 2.75rem 10rem;
+	color: $color-background;
+	section {
+		h2 {
+			font-family: "Irish Grover", system-ui;
+			font-weight: 400;
+			padding-bottom: 1.25rem;
+		}
+		ul {
+			font-size: 1.125rem;
+			font-family: "Open Sans", sans-serif;
+
+			color: $color-background;
+			list-style: none;
+			padding-bottom: 1.25rem;
+		}
+	}
+	form {
+		flex-direction: row;
+		h3,
+		p {
+			color: $color-background;
+			margin: 10px 0;
+		}
+		input {
+			width: 16.69rem;
+			height: 3rem;
+			border-radius: 8px 0 0 8px;
+			padding-left: 0.5rem;
+		}
+		button {
+			width: Hug (185px) px;
+			height: Hug (39px) px;
+			top: 201px;
+			left: 1167px;
+			padding: 7px 57px 7px 57px;
+			gap: 10px;
+			border-radius: 4px 0px 0px 0px;
+			opacity: 0px;
+
+			z-index: 10;
+			&:hover {
+				cursor: pointer;
+				// background-color: $color-orange;
+			}
+			&:active {
+				transform: scale(0.8);
+			}
+		}
+	}
+
+	img {
+		width: 14rem;
+		margin: 1.88rem;
+	}
+}

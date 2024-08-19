@@ -1,0 +1,24 @@
+@use "./Helpers/variables" as *;
+@use "./Helpers/mixins" as *;
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+.title {
+	@include title;
+}
+
+.subtitle {
+	@include subtitle;
+}
+
+.text {
+	@include text;
+}
+
+.errorMessage {
+	color: $color-error;
+	margin-top: 10px;
+}
+.successMessage {
+	color: $color-succes;
+	margin-top: 10px;
+}

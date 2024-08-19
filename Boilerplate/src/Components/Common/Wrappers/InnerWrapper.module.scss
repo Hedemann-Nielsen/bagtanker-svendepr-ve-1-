@@ -1,0 +1,9 @@
+@use "../../../Styles/Helpers/variables" as *;
+.InnerWrapper {
+	display: flex;
+	margin: auto;
+	width: 83%;
+	background-color: $color-light;
+	flex-direction: column;
+	min-height: 100vh;
+}

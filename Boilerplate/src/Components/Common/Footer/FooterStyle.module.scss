@@ -1,0 +1,54 @@
+@use "../../../Styles/Helpers/Mixins" as *;
+@use "../../../Styles/Helpers/variables" as *;
+
+.footer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-image: url("../../../Assets/Footer-Background.png");
+	background-repeat: no-repeat;
+
+	h2 {
+		@include subtitle;
+		margin: 1.88rem 0;
+		color: $color-light;
+	}
+	form {
+		flex-direction: row;
+		border: solid 1px $color-light;
+		border-radius: 8px;
+		background-color: white;
+		input {
+			width: 16.69rem;
+			height: 3rem;
+			border-radius: 8px 0 0 8px;
+			padding-left: 0.5rem;
+		}
+		button {
+			position: relative;
+			width: 3.94rem;
+			height: 3.1rem;
+			border-radius: 0px 8px 8px 0px;
+			font-family: "Open Sans";
+			font-size: 1rem;
+			font-weight: 400;
+			line-height: 1rem;
+			text-align: center;
+			background-color: #999999;
+			color: $color-light;
+			z-index: 10;
+			&:hover {
+				cursor: pointer;
+				background-color: $color-orange;
+			}
+			&:active {
+				transform: scale(0.8);
+			}
+		}
+	}
+
+	img {
+		width: 14rem;
+		margin: 1.88rem;
+	}
+}

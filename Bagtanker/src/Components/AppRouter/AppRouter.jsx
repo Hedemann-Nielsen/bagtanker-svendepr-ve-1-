@@ -5,6 +5,7 @@ import { NewsPage } from "../../Pages/NewsPage.jsx";
 import { ContactPage } from "../../Pages/ContactPage.jsx";
 import { ProductsPage } from "../../Pages/ProductsPage.jsx";
 import { CreateUser } from "../Customers/Login/CreateUser.jsx";
+import { Login } from "../Customers/Login/Login.jsx";
 import { Categorys } from "../Customers/Products/Categorys.jsx";
 import { Product } from "../Customers/Products/Product.jsx";
 import { HomePage } from "../../Pages/HomePage.jsx";
@@ -14,10 +15,18 @@ export const AppRouter = () => {
 		<Routes>
 			<Route index element={<HomePage />} />
 			<Route path="/home" element={<HomePage />} />
+			<Route path="/produkter" element={<ProductsPage />}>
+				<Route index element={<Product />} />
+				<Route path="/produkter:produkt" element={<Product />} />
+			</Route>
+			<Route path="/login" element={<LoginPage />}>
+				<Route index element={<Login />} />
+				{/* <Route path="/login" element={<Login />} /> */}
+				<Route path="/login/createUser" element={<CreateUser />} />
+			</Route>
 
 			<Route path="/news" element={<NewsPage />} />
 			<Route path="/contact" element={<ContactPage />} />
-
 			<Route path="*" element={<FallbackPage />} />
 		</Routes>
 	);
@@ -28,11 +37,6 @@ export const AppRouter = () => {
 // 		<Route path=":categorys/:product" element={<Product />} />
 // 	</Route>
 
-// 	<Route path="/login" element={<LoginPage />}>
-// 		<Route index element={<LoginPage />} />
-// 		{/* <Route path="/login" element={<Login />} /> */}
-// 		<Route path="/login/createUser" element={<CreateUser />} />
-// 	</Route>
 //nested router
 // 			{
 // 				path: "/login",

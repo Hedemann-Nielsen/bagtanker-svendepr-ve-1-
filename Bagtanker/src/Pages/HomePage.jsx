@@ -1,9 +1,5 @@
-import { Home } from "../Components/Customers/Home/Home.jsx";
+import { HomeLayout } from "../Components/Layout/HomeLayout.jsx";
 
 export const HomePage = () => {
-	return (
-		<>
-			<Home />
-		</>
-	);
+	return <HomeLayout />;
 };

@@ -31,12 +31,12 @@ export const CookieBanner = () => {
 						<h3>Cookie Meddelelse:</h3>
 						<p>
 							Vi bruger cookies til at tilpasse indhold og annoncer, tilbyde en
-							hurtigere og bedre tingængelif side. Er det okay med dig?
+							hurtigere og bedre tingængelig side. Er det okay med dig?
 						</p>
-						<button onClick={cookieOK} className={globalStyle.buttonDark}>
+						<button onClick={cookieOK} className={globalStyle.styledButton}>
 							Ja
 						</button>
-						<button onClick={cookieDeny} className={globalStyle.buttonDark}>
+						<button onClick={cookieDeny} className={globalStyle.styledButton}>
 							Nej
 						</button>
 					</section>

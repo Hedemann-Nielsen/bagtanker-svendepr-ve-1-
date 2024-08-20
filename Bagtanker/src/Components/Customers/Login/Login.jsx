@@ -5,7 +5,6 @@ import { useAuth } from "../../../Providers/AuthProvider";
 import globalStyle from "../../../Styles/GlobalStyles.module.scss";
 import style from "./Login.module.scss";
 import { useEffect, useState } from "react";
-import { StyledButton } from "../../../Styles/StyledComponents";
 import { PageWrapper } from "../../Common/Wrappers/PageWrapper";
 
 export const Login = () => {
@@ -116,75 +115,93 @@ export const Login = () => {
 								</span>
 							)}
 							<div className={style.buttonContainer}>
-								<StyledButton className={globalStyle.inputBtn} type="submit">
+								<button className={globalStyle.styledButton} type="submit">
 									Login
-								</StyledButton>
+								</button>
 							</div>
-							{/* sender brugeren videre til en ny side  */}
-							<Link className={style.link} to="/login/createUser">
-								Opret mig som bruger
-							</Link>
+							<div className={style.link}>
+								{/* sender brugeren videre til en ny side  */}
+								<Link to="/login/createUser">Opret mig som bruger</Link>
+							</div>
 						</form>
 					</div>
 				</PageWrapper>
 			) : (
-				<PageWrapper title="Velkommen">
-					<p>Du er logget ind som {loginData.user.email}</p>
-					<div className={style.buttonContainer}>
-						{/* Denne knap vil logge brugeren ud */}
-						<button onClick={handleLogout} className={globalStyle.inputBtn}>
-							Log ud
-						</button>
-					</div>
-					<div className={style.passwordWrapper}>
-						<h3 className={globalStyle.subtitle2} style={{ padding: "0" }}>
-							Skift Password
-						</h3>
-						{/* Når der trykkes på knappen (password) kaldes handleChangePassword funktionen */}
-						<form
-							className={style.form}
-							onSubmit={handleSubmit(handleChangePassword)}>
-							<input
-								className={globalStyle.input}
-								type="password"
-								placeholder="Nyt password"
-								{...register("newPassword", { required: true })}
-							/>
-							{errors.newPassword && (
-								<span className={globalStyle.errorMessage}>
-									This field is required
-								</span>
-							)}
-							<input
-								className={globalStyle.input}
-								type="password"
-								placeholder="Bekræft nyt password"
-								{...register("confirmNewPassword", {
-									required: true,
-									validate: (value) =>
-										value === watch("newPassword") || "Passwords do not match",
-								})}
-							/>
-							{errors.confirmNewPassword && (
-								<span className={globalStyle.errorMessage}>
-									{errors.confirmNewPassword.message}
-								</span>
-							)}
-							{errorMessage && (
-								<span className={style.errorMessage}>{errorMessage}</span>
-							)}
-							{successMessage && (
-								<span className={style.successMessage}>{successMessage}</span>
-							)}
-							<div className={style.buttonContainer}>
-								<button className={globalStyle.inputBtn} type="submit">
-									Skift Password
-								</button>
-							</div>
-						</form>
-					</div>
+				<PageWrapper title="Min side">
+					<h2>Mine kommentare</h2>
+					<table className={style.commentsTable}>
+						<thead>
+							<tr>
+								<th>Title</th>
+								<th>Dato</th>
+								<th>Handling</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<tr>
+								<th>fantastisk oplelevse</th>
+								<th>fantastisk oplelevse</th>
+								<th>fantastisk oplelevse</th>
+							</tr>
+						</tbody>
+					</table>
 				</PageWrapper>
 			)}
 		</>
 	);
 };
+// {/* <p>Du er logget ind som {loginData.user.email}</p>
+// 				<div className={style.buttonContainer}>
+// 					{/* Denne knap vil logge brugeren ud */}
+// 					<button onClick={handleLogout} className={globalStyle.inputBtn}>
+// 						Log ud
+// 					</button>
+// 				</div>
+// 				<div className={style.passwordWrapper}>
+// 					<h3 className={globalStyle.subtitle2} style={{ padding: "0" }}>
+// 						Skift Password
+// 					</h3>
+// 					{/* Når der trykkes på knappen (password) kaldes handleChangePassword funktionen */}
+// 					<form
+// 						className={style.form}
+// 						onSubmit={handleSubmit(handleChangePassword)}>
+// 						<input
+// 							className={globalStyle.input}
+// 							type="password"
+// 							placeholder="Nyt password"
+// 							{...register("newPassword", { required: true })}
+// 						/>
+// 						{errors.newPassword && (
+// 							<span className={globalStyle.errorMessage}>
+// 								This field is required
+// 							</span>
+// 						)}
+// 						<input
+// 							className={globalStyle.input}
+// 							type="password"
+// 							placeholder="Bekræft nyt password"
+// 							{...register("confirmNewPassword", {
+// 								required: true,
+// 								validate: (value) =>
+// 									value === watch("newPassword") || "Passwords do not match",
+// 							})}
+// 						/>
+// 						{errors.confirmNewPassword && (
+// 							<span className={globalStyle.errorMessage}>
+// 								{errors.confirmNewPassword.message}
+// 							</span>
+// 						)}
+// 						{errorMessage && (
+// 							<span className={style.errorMessage}>{errorMessage}</span>
+// 						)}
+// 						{successMessage && (
+// 							<span className={style.successMessage}>{successMessage}</span>
+// 						)}
+// 						<div className={style.buttonContainer}>
+// 							<button className={globalStyle.inputBtn} type="submit">
+// 								Skift Password
+// 							</button>
+// 						</div>
+// 					</form>
+// 				</div> */}

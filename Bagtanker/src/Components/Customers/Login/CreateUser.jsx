@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { StyledButton } from "../../../Styles/StyledComponents";
+
 import { useSupabase } from "../../../Providers/SupabaseProvider";
 import { useNavigate } from "react-router-dom";
 import globalStyle from "../../../Styles/GlobalStyles.module.scss";
@@ -135,7 +135,9 @@ export const CreateUser = () => {
 					)}
 				</div>
 
-				<StyledButton type="submit">Opret bruger</StyledButton>
+				<button type="submit" className={globalStyle.styledButton}>
+					Opret bruger
+				</button>
 			</form>
 		</PageWrapper>
 	);

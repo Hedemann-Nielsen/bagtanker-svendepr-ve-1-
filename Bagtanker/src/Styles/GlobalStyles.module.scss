@@ -16,9 +16,61 @@
 
 .errorMessage {
 	color: $color-error;
+	font-size: 1.2rem;
 	margin-top: 10px;
 }
 .successMessage {
 	color: $color-succes;
+	font-size: 1.2rem;
 	margin-top: 10px;
+}
+
+.styledButton {
+	width: 160px;
+	height: 2.438rem;
+	padding: 7px, 57px, 7px, 57px;
+	border-radius: 4px;
+	font-family: "Open Sans", sans-serif;
+	font-size: 1.125rem;
+	color: $color-background;
+	background-color: $color-bluegrey;
+
+	&:hover {
+		animation-timing-function: ease-out;
+		animation-duration: 300ms;
+		background: $color-darkgrey;
+	}
+}
+
+.goldButton {
+	width: 19rem;
+	height: 2.438rem;
+	padding: 7px, 57px, 7px, 57px;
+	border-radius: 4px;
+	border-color: transparent;
+	font-family: "Open Sans", sans-serif;
+	font-size: 1.125rem;
+	color: $color-lightgray;
+	background-color: $color-yellow;
+
+	&:hover {
+		animation-timing-function: ease-out;
+		animation-duration: 300ms;
+		background: $color-darkgrey;
+	}
+}
+
+.pageWrapper {
+	height: 100vh;
+
+	p {
+		font-family: "Open Sans", sans-serif;
+		font-size: 16px;
+		font-weight: 300;
+		line-height: 21.79px;
+		text-align: left;
+	}
+	h1 {
+		text-align: left;
+	}
 }

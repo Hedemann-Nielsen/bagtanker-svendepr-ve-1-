@@ -2,19 +2,35 @@
 .loginWrapper {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+
 	.form {
+		display: flex;
+		flex-direction: column;
+
+		width: 100%;
+
 		input {
+			width: 490px;
+			height: 48px;
+			top: 20px;
+			left: 20px;
+			padding: 13px 0 13px 23px;
+			gap: 0px;
+			border-radius: 5px;
+			opacity: 0px;
 			margin-top: 15px;
 			display: block;
 		}
-		button {
+		.buttonContainer {
+			// margin: auto;
+			margin: 0;
 			margin-top: 15px;
 		}
 	}
 }
-
+.link {
+	margin-top: 50px;
+}
 .passwordWrapper {
 	margin-top: 50px;
 	.form {
@@ -27,20 +43,19 @@
 		}
 	}
 }
-.buttonContainer {
-	align-self: flex-end;
-	display: flex;
-	justify-content: flex-end;
-	:hover {
-		// background-color: $color-darkborder;
-		// color: $color-light;
+
+.commentsTable {
+	width: 100%;
+	background-color: red;
+	text-align: left;
+	table {
+		tbody {
+			tr {
+				th:nth-child(1) {
+					width: 50%;
+					background-color: green;
+				}
+			}
+		}
 	}
-}
-.errorMessage {
-	color: red;
-	margin-top: 10px;
-}
-.successMessage {
-	color: green;
-	margin-top: 10px;
 }

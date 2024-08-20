@@ -1,31 +1,41 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { NewsletterModal } from "../../Modal/NewsletterModal.jsx";
+import { useSupabase } from "../../../Providers/SupabaseProvider";
 
 import style from "./FooterStyle.module.scss";
 import globalStyle from "../../../Styles/GlobalStyles.module.scss";
-import { StyledButton } from "../../../Styles/StyledComponents.jsx";
 
 export const Footer = () => {
-	//modal styring
 	const [modalIsOpen, setModalIsOpen] = useState(false);
+	const { supabase } = useSupabase();
+	const [email, setEmail] = useState("");
+	const [message, setMessage] = useState("");
+
 	const {
 		register,
 		handleSubmit,
-		// watch,
 		formState: { errors },
 		reset,
 	} = useForm();
 
-	const onSubmit = (data) => {
-		// console.log(data);
-		openModal();
-		reset();
+	const PostOnSubmit = async (data) => {
+		const { error } = await supabase
+			.from(`newsletter_emails`)
+			.insert([{ email: data.email }]);
+
+		if (error) {
+			setMessage(`fejl ved indesendelse af email:` + error.message);
+		} else {
+			setMessage(`e-mail indsendt succesfuldt!`);
+			openModal();
+			reset();
+		}
 	};
 
 	const openModal = () => {
 		setModalIsOpen(true);
-		// console.log("modal is open");
+		console.log("modal is open");
 	};
 	const closeModal = () => {
 		setModalIsOpen(false);
@@ -46,36 +56,40 @@ export const Footer = () => {
 					<li>Email: info@bagtanker.dk</li>
 				</ul>
 			</section>
-			<section></section>
-			<h3 className={globalStyle.subtitle}>
-				Tilmeld dig Bagtankers nyhedsbrev
-			</h3>
-			<p className={globalStyle.text}>
-				Få vores nyheder direkte i din indbakke
-			</p>
-			<form onSubmit={handleSubmit(onSubmit)}>
-				<input
-					type="text"
-					placeholder="Indtast email"
-					{...register("email", {
-						required: true,
-						pattern: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-					})}></input>
-				<StyledButton type="submit">Tilemld</StyledButton>
-				<div>
-					{errors.email && errors.email.type === "required" && (
-						<span className="text-red-600 text-lg">
-							Dette felt skal udfyldes
-						</span>
-					)}
-					{errors.email && errors.email.type === "pattern" && (
-						<span className="text-red-600 text-lg">
-							Du skal indtaste en gyldig email
-						</span>
-					)}
-				</div>
-			</form>
+			<section>
+				<h3 className={globalStyle.subtitle}>
+					Tilmeld dig Bagtankers nyhedsbrev
+				</h3>
+				<p className={globalStyle.text}>
+					Få vores nyheder direkte i din indbakke
+				</p>
+				<form onSubmit={handleSubmit(PostOnSubmit)}>
+					<input
+						type="email"
+						placeholder="Indtast email"
+						{...register("email", {
+							required: true,
+							pattern: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+						})}></input>
+					<div>
+						{errors.email && errors.email.type === "required" && (
+							<span className={globalStyle.errorMessage}>
+								Dette felt skal udfyldes
+							</span>
+						)}
+						{errors.email && errors.email.type === "pattern" && (
+							<span className={globalStyle.errorMessage}>
+								Du skal indtaste en gyldig email
+							</span>
+						)}
+					</div>
+					<button type="submit" className={globalStyle.styledButton}>
+						Tilemld
+					</button>
+				</form>
+			</section>
 
+			{/* modal indhold */}
 			<NewsletterModal
 				isOpen={modalIsOpen}
 				onRequestClose={closeModal}
@@ -84,7 +98,8 @@ export const Footer = () => {
 				<div>
 					<h2>Tak for din tilmelding</h2>
 					<p>Du er nu tilmeldt nyhedsbrevet</p>
-					<button onClick={closeModal} className={globalStyle.buttonDark}>
+					<button></button>
+					<button onClick={closeModal} className={globalStyle.goldButton}>
 						Luk
 					</button>
 				</div>

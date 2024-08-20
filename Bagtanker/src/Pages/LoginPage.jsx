@@ -1,9 +1,9 @@
-import { Outlet } from "react-router-dom";
+import { DefaultLayout } from "../Components/Layout/DefaultLayout";
 
 export const LoginPage = () => {
 	return (
 		<>
-			<Outlet />
+			<DefaultLayout />
 		</>
 	);
 };

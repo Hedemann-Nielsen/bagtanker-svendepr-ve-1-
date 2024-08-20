@@ -1,0 +1,79 @@
+@use "../../../Styles//Helpers//variables" as *;
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+.newsTeaser {
+	position: absolute;
+	top: 288px;
+	left: 139px;
+	width: 40%;
+	height: 60%;
+	background-color: $color-darkgrey;
+	opacity: 80%;
+	border-radius: 8px;
+	z-index: 110;
+	h1 {
+		position: relative;
+		top: -70px;
+		font-family: "Open Sans", sans-serif;
+		font-weight: 400;
+		font-size: 48px;
+		line-height: 0.938rem;
+	}
+}
+
+.newsTeaserCard {
+	width: 100%;
+	display: flex;
+	color: $color-background;
+	margin: 32px;
+	img {
+		width: 195px;
+		border: 1px solid $color-lightgray;
+		border-radius: 8px;
+	}
+	figcaption {
+		margin-left: 32px;
+		width: 62%;
+		h2 {
+			font-family: "Open Sans", sans-serif;
+			font-size: 16px;
+			font-weight: 300;
+			line-height: 21px;
+		}
+		h3 {
+			font-family: "Open Sans", sans-serif;
+			font-size: 18px;
+			font-weight: 600;
+			line-height: 24.5px;
+		}
+		p {
+			font-family: "Open Sans", sans-serif;
+			font-size: 18px;
+			font-weight: 300;
+			line-height: 24.5px;
+		}
+	}
+}
+
+//mobil
+@media (max-width: 600px) {
+	.newsTeaser {
+		left: 50%;
+		transform: translateX(-50%);
+		width: 80%;
+		height: 80%;
+	}
+	.newsTeaserCard {
+		flex-direction: column;
+		width: 100%;
+		margin: 10px 0;
+		img {
+			margin: auto;
+			width: 80%;
+		}
+		figcaption {
+			width: 80%;
+			margin: 10px 50px;
+		}
+	}
+}

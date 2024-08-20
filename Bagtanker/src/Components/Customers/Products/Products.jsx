@@ -1,5 +1,9 @@
-import React from "react";
+import { PageWrapper } from "../../Common/Wrappers/PageWrapper";
 
 export const Products = () => {
-	return <div>Products</div>;
+	return (
+		<PageWrapper>
+			<h1>Products</h1>
+		</PageWrapper>
+	);
 };

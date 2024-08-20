@@ -1,4 +1,4 @@
-import { StyledButton } from "../../../Styles/StyledComponents";
+import globalStyle from "../../../Styles/GlobalStyles.module.scss";
 import style from "./Fallback.module.scss";
 
 export const Fallback = () => {
@@ -15,7 +15,9 @@ export const Fallback = () => {
 					<p>If you think this is an error contact support.</p>
 				</p>
 				<div>
-					<StyledButton>Take me back to home page</StyledButton>
+					<button className={globalStyle.styledButton}>
+						Take me back to home page
+					</button>
 				</div>
 			</div>
 		</div>

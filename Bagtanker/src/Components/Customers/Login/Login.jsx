@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useSupabase } from "../../../Providers/SupabaseProvider";
 import { useAuth } from "../../../Providers/AuthProvider";
 import globalStyle from "../../../Styles/GlobalStyles.module.scss";
@@ -10,14 +10,6 @@ import { PageWrapper } from "../../Common/Wrappers/PageWrapper";
 export const Login = () => {
 	const { supabase } = useSupabase();
 	const { loginData, setLoginData } = useAuth();
-
-	const clearMessages = () => {
-		setTimeout(() => {
-			setErrorMessage(""); // Tømmer errorMessage efter 5 sekunder
-			setSuccessMessage(""); // Tømmer successMessage efter 5 sekunder
-		}, 5000);
-	};
-
 	const {
 		register,
 		handleSubmit,
@@ -26,7 +18,15 @@ export const Login = () => {
 	} = useForm();
 	const [errorMessage, setErrorMessage] = useState(""); // State til error message
 	const [successMessage, setSuccessMessage] = useState(""); // State til success message
+	const location = useLocation();
+	const userCreatedMessage = location.state?.userCreatedMessage;
 
+	const clearMessages = () => {
+		setTimeout(() => {
+			setErrorMessage(""); // Tømmer errorMessage efter 5 sekunder
+			setSuccessMessage(""); // Tømmer successMessage efter 5 sekunder
+		}, 5000);
+	};
 	// Asynkron funktion der håndterer login-processen
 	const handleLogin = async ({ email, password }) => {
 		// Forsøger at logge ind med den angivne email og adgangskode ved hjælp af Supabase
@@ -107,6 +107,11 @@ export const Login = () => {
 			{!loginData ? (
 				<PageWrapper title="Login">
 					<div className={style.loginWrapper}>
+						{userCreatedMessage && (
+							<div className={globalStyle.successMessage}>
+								{userCreatedMessage}
+							</div>
+						)}
 						<p>Indtast brugernavn og password for at logge ind.</p>
 						{/* Når der klikkes på submit (login knappen) vil handleLogin blive kaldt */}
 						<form className={style.form} onSubmit={handleSubmit(handleLogin)}>

@@ -8,7 +8,7 @@
 		@include text;
 		margin-top: 22px;
 	}
-	// styling til n¨r du ikke er logget ind
+	// styling til når du ikke er logget ind
 	.form {
 		display: flex;
 		flex-direction: column;
@@ -118,4 +118,24 @@
 	line-height: 36px;
 	text-align: left;
 	margin-top: 30px;
+}
+
+//opret bruger
+
+.createUser {
+	display: flex;
+	flex-direction: column;
+	input {
+		display: block;
+		width: 23.125rem;
+		height: 3rem;
+		border-radius: 5px;
+		margin: 10px 0;
+		padding-left: 16px;
+		&::placeholder {
+			font-family: "Open Sans", sans-serif;
+			font-size: 16px;
+			font-weight: 300;
+		}
+	}
 }

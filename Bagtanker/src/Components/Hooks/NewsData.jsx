@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSupabase } from "../../Providers/SupabaseProvider";
 
-export const useNewsTeaserData = () => {
+export const useNewsData = () => {
 	const { supabase } = useSupabase();
 	const [newsData, setNewsData] = useState([]);
 
@@ -11,12 +11,11 @@ export const useNewsTeaserData = () => {
 				if (supabase) {
 					const { data, error } = await supabase
 						.from("news") //henter fra tabellen news
-						.select("created_at, title, teaser, images(filename)") // henter created_at, title, teaser, fra tabellen og filename fra images fordi de har en  foreginkey
-						// .order("RANDOM") // Sorter tilfældigt
-						.limit("3"); // Begræns til 3 nyheder
+						.select("*, images(filename)"); // henter created_at, title, teaser, fra tabellen og filename fra images fordi de har en  foreginkey
+
 					if (error) {
 						console.error(
-							"Fejl ved hentning af data fra NewsTeaser:",
+							"Fejl ved hentning af data fra NewsData:",
 							error.message
 						);
 					} else {

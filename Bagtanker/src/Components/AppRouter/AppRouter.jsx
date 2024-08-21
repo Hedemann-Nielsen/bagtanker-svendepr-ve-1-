@@ -6,6 +6,7 @@ import { ContactPage } from "../../Pages/ContactPage.jsx";
 import { ProductsPage } from "../../Pages/ProductsPage.jsx";
 import { CreateUser } from "../Customers/Login/CreateUser.jsx";
 import { Login } from "../Customers/Login/Login.jsx";
+import { News } from "../Customers/News/News.jsx";
 import { Categorys } from "../Customers/Products/Categorys.jsx";
 import { Product } from "../Customers/Products/Product.jsx";
 import { HomePage } from "../../Pages/HomePage.jsx";
@@ -25,7 +26,10 @@ export const AppRouter = () => {
 				<Route path="/login/createUser" element={<CreateUser />} />
 			</Route>
 
-			<Route path="/news" element={<NewsPage />} />
+			<Route path="/news" element={<NewsPage />}>
+				<Route index element={<News />} />
+			</Route>
+
 			<Route path="/contact" element={<ContactPage />} />
 			<Route path="*" element={<FallbackPage />} />
 		</Routes>

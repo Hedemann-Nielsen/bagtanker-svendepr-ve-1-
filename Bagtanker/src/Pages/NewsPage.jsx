@@ -1,12 +1,5 @@
-import { PageWrapper } from "../Components/Common/Wrappers/PageWrapper";
-import { News } from "../Components/Customers/News/News.jsx";
+import { DefaultLayout } from "../Components/Layout/DefaultLayout.jsx";
 
 export const NewsPage = () => {
-	return (
-		<>
-			<PageWrapper>
-				<News />
-			</PageWrapper>
-		</>
-	);
+	return <DefaultLayout />;
 };

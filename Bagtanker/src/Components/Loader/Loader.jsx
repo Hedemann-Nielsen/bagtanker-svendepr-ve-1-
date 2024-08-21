@@ -1,5 +1,5 @@
 import style from "./Loader.module.scss";
-import globalStyle from "../../../Styles/GlobalStyles.module.scss";
+import globalStyle from "../../Styles/GlobalStyles.module.scss";
 
 export const Loader = () => {
 	return (

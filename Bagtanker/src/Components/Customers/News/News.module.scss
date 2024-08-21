@@ -1,0 +1,26 @@
+@use "../../../Styles//Helpers/Mixins" as *;
+.selectedNews {
+	width: 100%;
+	padding-bottom: 50px;
+	p {
+		@include text;
+	}
+	img {
+		width: 100%;
+	}
+}
+
+.preformatted-text {
+	white-space: pre-line;
+}
+
+// PC
+@media (min-width: 992px) {
+	.newsWrapper {
+		display: block;
+		flex-direction: column-reverse;
+	}
+	.selectedNews {
+		width: 50%;
+	}
+}

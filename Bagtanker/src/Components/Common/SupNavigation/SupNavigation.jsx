@@ -1,14 +1,19 @@
+import { NavLink } from "react-router-dom";
+import { SubMenu } from "../../Static/MenuData";
+
 import style from "./SupNavigation.module.scss";
 
-//bruges til undernavigation på nogle sider
-
-export const SupNavigation = ({ SubNavItems }) => {
+export const SupNavigation = () => {
 	return (
 		<nav className={style.supNavigation}>
 			<ul>
-				{SubNavItems.map((item, index) => (
-					<li key={index}>
-						<a href={item.link}>{item.text}</a>
+				{SubMenu.map((link) => (
+					<li key={link.url}>
+						<NavLink
+							to={link.url}
+							className={({ isActive }) => (isActive ? style.active : "")}>
+							{link.title}
+						</NavLink>
 					</li>
 				))}
 			</ul>

@@ -2,14 +2,14 @@ import { Outlet, useLocation } from "react-router-dom";
 import { CookieBanner } from "../CookieBanner/CookieBanner.jsx";
 import { Footer } from "../Common/Footer/Footer.jsx";
 import { Header } from "../Common/Header/Header.jsx";
-
+import { SupNavigation } from "../Common/SupNavigation/SupNavigation.jsx";
 import { InnerWrapper } from "../Common/Wrappers/InnerWrapper.jsx";
 
 export const DefaultLayout = () => {
 	return (
 		<>
 			<Header />
-			{/* <SubNavigation */}
+			<SupNavigation />
 			<InnerWrapper>
 				<Outlet />
 			</InnerWrapper>

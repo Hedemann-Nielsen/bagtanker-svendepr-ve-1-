@@ -1,33 +1,39 @@
 @use "../../../Styles/Helpers/variables" as *;
 @use "../../../Styles/Helpers/mixins" as *;
+
 .supNavigation {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+	width: 100%;
+	background-color: $color-darkgrey;
+	height: 95px;
 
 	ul {
-		display: grid;
-		grid-template-columns: repeat(5, 1fr);
-		width: 100%;
-		height: fit-content;
 		display: flex;
-		text-align: center;
-		justify-content: center;
-		align-items: center;
 		list-style: none;
-		gap: 1px;
+		justify-content: space-around;
+		align-items: center;
+		text-align: center;
+		padding-top: 30px;
+		margin: 0 120px;
+
 		li {
 			width: 100%;
-			height: 3.75rem;
-			display: flex;
-			text-align: center;
-			justify-content: center;
-			align-items: center;
-			background-color: $color-darkgray;
+
 			a {
-				@include artisttext;
-				width: 100%;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				text-decoration: none;
+				color: $color-background;
+				text-transform: uppercase;
+				font-family: "Open Sans", sans-serif;
+				font-size: 24px;
+				font-weight: 400;
+				padding: 0 10px;
+
+				&:active {
+					color: $color-yellow;
+				}
 			}
 		}
 	}

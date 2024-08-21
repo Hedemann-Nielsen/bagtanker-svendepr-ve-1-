@@ -1,29 +1,36 @@
 import { PageWrapper } from "../../Common/Wrappers/PageWrapper";
-import { useEffect, useState } from "react";
-import { useNewsData } from "../../Hooks/NewsData.jsx"; // Importer useNewsData
+import { useEffect, useMemo, useState } from "react";
+import { useNewsData } from "../../Hooks/NewsData.jsx";
 import { NewsSubNavigation } from "./NewsSubNavigation.jsx";
 import { formatDate } from "../../Utils/DateUtils.jsx";
+import { useParams, useLocation } from "react-router-dom";
 
 import style from "./News.module.scss";
 
 export const News = ({ onDataLoaded }) => {
-	const newsData = useNewsData(); // Hent data fra useNewsData hooken
+	const newsData = useNewsData();
+	const { newsId } = useParams(); // Hent newsId fra URL'en
+	const location = useLocation(); // Hent den nuværende URL-location
 	const [selectedNews, setSelectedNews] = useState(null);
 
 	useEffect(() => {
-		// Hvis der er data, og selectedNews ikke allerede er sat, sæt den til den seneste nyhed
-		if (newsData.length > 0 && !selectedNews) {
-			setSelectedNews(newsData[0]);
+		if (newsData.length > 0) {
+			if (newsId) {
+				// Hvis der er et newsId i URL'en, find den matchende nyhed
+				const news = newsData.find((item) => item.id === newsId);
+				setSelectedNews(news || newsData[0]);
+			} else {
+				// Hvis der ikke er et newsId, vis den seneste nyhed
+				const sortedNewsData = [...newsData].sort(
+					(a, b) => new Date(b.created_at) - new Date(a.created_at)
+				);
+				setSelectedNews(sortedNewsData[0]);
+			}
 			if (onDataLoaded) {
-				onDataLoaded(newsData); // Kalder onDataLoaded med data fra useNewsData
+				onDataLoaded(newsData);
 			}
 		}
-	}, [newsData, selectedNews, onDataLoaded]);
-
-	// Håndter valg af nyhed fra navigationen
-	const handleNewsSelect = (news) => {
-		setSelectedNews(news);
-	};
+	}, [newsData, newsId, onDataLoaded]);
 
 	return (
 		<>
@@ -34,16 +41,13 @@ export const News = ({ onDataLoaded }) => {
 						<p>{selectedNews?.teaser}</p>
 						{selectedNews?.images && (
 							<img
-								src={selectedNews.images.filename} // Brug billed-URL'en
+								src={selectedNews.images.filename}
 								alt={selectedNews.title}
 							/>
 						)}
 						<p>{selectedNews?.content}</p>
 					</div>
-					<NewsSubNavigation
-						allNewsData={newsData}
-						onNewsSelect={handleNewsSelect}
-					/>
+					<NewsSubNavigation onNewsSelect={(news) => setSelectedNews(news)} />
 				</div>
 			</PageWrapper>
 		</>

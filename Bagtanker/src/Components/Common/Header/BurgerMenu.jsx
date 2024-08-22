@@ -20,13 +20,12 @@ export const BurgerMenu = () => {
 
 			<nav className={`${style.navMenu} ${isOpen && style.active}`}>
 				<ul>
-					<li className={style.rightAlign} key="0">
+					<li key="0">
 						<Hamburger
 							toggled={isOpen}
 							toggle={setOpen}
 							rounded
 							direction="right"
-							className={style.hamburger}
 							color="#ffffff"
 						/>
 					</li>

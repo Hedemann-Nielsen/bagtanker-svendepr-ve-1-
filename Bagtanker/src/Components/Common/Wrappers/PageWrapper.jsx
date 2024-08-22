@@ -1,5 +1,5 @@
 import globalStyle from "../../../Styles/GlobalStyles.module.scss";
-import Breadcrumb from "../Breadcrumb";
+import Breadcrumb from "./Breadcrumb/Breadcrumb";
 import { useLocation } from "react-router-dom";
 
 export const PageWrapper = ({ title, children }) => {

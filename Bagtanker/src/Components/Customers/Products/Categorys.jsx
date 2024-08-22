@@ -10,7 +10,7 @@ export const Categorys = () => {
 	const { katogori } = useParams(); // Hent den valgte kategori fra URL'en
 	const categorysAndProductsData = useCategorysAndProductsData();
 
-	console.log(categorysAndProductsData, "fetch kald");
+	// console.log(categorysAndProductsData, "fetch kald");
 
 	// Filtrering af kategorier og produkter baseret på den valgte kategori
 	const filteredCategories = categorysAndProductsData.filter(

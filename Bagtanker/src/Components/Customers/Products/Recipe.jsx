@@ -5,15 +5,15 @@ import { useIngredientAndProductData } from "../../Hooks/IngredientAndProductDat
 
 export const Recipe = ({ product }) => {
 	const ingredientAndProductData = useIngredientAndProductData();
-	console.log("ingredientAndProductData:", ingredientAndProductData);
+	// console.log("ingredientAndProductData:", ingredientAndProductData);
 	// console.log(product);
 
 	const filteredData = ingredientAndProductData.filter(
 		(item) => item.product_id.id === product.id
 	);
 
-	console.log("Filtered data:", filteredData);
-	console.log("Product:", product);
+	// console.log("Filtered data:", filteredData);
+	// console.log("Product:", product);
 
 	return (
 		<div className={style.recipeWrapper}>

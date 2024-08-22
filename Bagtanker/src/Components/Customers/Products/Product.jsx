@@ -36,7 +36,7 @@ export const Product = () => {
 		}
 	}, [slug, supabase]);
 
-	console.log(product);
+	// console.log(product);
 
 	return (
 		<PageWrapper title={product?.title}>

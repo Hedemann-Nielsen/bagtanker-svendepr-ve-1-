@@ -11,7 +11,7 @@ const formatDate = (dateString) => {
 };
 
 export const NewsTeaserCard = ({ newsTeaser }) => {
-	console.log(newsTeaser);
+	// console.log(newsTeaser);
 
 	// Hent billednavnet med filtypenavn
 	const fullFileName = newsTeaser.images.filename.substring(
@@ -24,7 +24,7 @@ export const NewsTeaserCard = ({ newsTeaser }) => {
 		.slice(0, -1)
 		.join(".");
 
-	console.log(fileNameWithoutExtension);
+	// console.log(fileNameWithoutExtension);
 
 	return (
 		<figure className={style.newsTeaserCard}>

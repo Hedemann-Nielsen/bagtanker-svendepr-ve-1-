@@ -3,6 +3,14 @@
 
 .likeWrapper {
 	display: flex;
+	p {
+		font-family: Open Sans;
+		font-size: 16px;
+		font-weight: 300;
+		color: $color-darkgrey;
+		margin-top: 8px;
+		margin-right: 10px;
+	}
 	button {
 		@include unbuttonize;
 		color: $color-darkgrey;
@@ -11,13 +19,5 @@
 			font-size: 40px;
 			color: $color-darkgrey;
 		}
-	}
-	p {
-		font-family: Open Sans;
-		font-size: 16px;
-		font-weight: 300;
-		color: $color-darkgrey;
-		margin-top: 8px;
-		margin-right: 10px;
 	}
 }

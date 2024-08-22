@@ -16,6 +16,7 @@ export const Categorys = () => {
 	const filteredCategories = categorysAndProductsData.filter(
 		(item) => convertLetters(item.category_id.title) === katogori
 	);
+	// console.log(filteredCategories, "fetch kald");
 
 	return (
 		<PageWrapper title={katogori}>

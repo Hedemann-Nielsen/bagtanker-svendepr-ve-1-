@@ -44,3 +44,20 @@
 		width: fit-content;
 	}
 }
+
+@media (max-width: 768px) {
+	.contact {
+		grid-template-columns: 1fr;
+		.contactForm {
+			margin-bottom: 50px;
+			.form {
+				input {
+					width: 100%;
+				}
+				textarea {
+					width: 100%;
+				}
+			}
+		}
+	}
+}

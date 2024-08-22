@@ -11,7 +11,9 @@ export const SupNavigation = () => {
 					<li key={link.url}>
 						<NavLink
 							to={link.url}
-							className={({ isActive }) => (isActive ? style.active : "")}>
+							className={({ isActive }) =>
+								isActive ? `${style.active} ${style.activeLink}` : ""
+							}>
 							{link.title}
 						</NavLink>
 					</li>

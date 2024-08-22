@@ -29,7 +29,9 @@ export const Contact = () => {
 						Udfyld og send formularen og vi vil hurtigst muligt besvare dine
 						spørgsmål.
 					</p>
-					<form onSubmit={handleSubmit(handleSendMessage)}>
+					<form
+						className={style.form}
+						onSubmit={handleSubmit(handleSendMessage)}>
 						<input
 							type="text"
 							placeholder="Indtast dit navn"

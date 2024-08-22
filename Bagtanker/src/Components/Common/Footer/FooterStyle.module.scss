@@ -53,22 +53,35 @@
 			width: 185px;
 			background-color: #5f657b;
 			margin-top: 10px;
-
-			// height: 39px;
-			// top: 201px;
-			// left: 1167px;
-			// padding: 7px 57px 7px 57px;
-
-			// border-radius: 4px 0px 0px 0px;
-			// opacity: 0px;
-			// z-index: 10;
 			&:hover {
 				cursor: pointer;
-				// background-color: $color-orange;
 			}
 			&:active {
 				transform: scale(0.8);
 			}
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.footer {
+		height: 100%;
+		flex-direction: column;
+		padding: 12px;
+		section {
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			h3 {
+				font-size: 20px;
+			}
+		}
+		form {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
 		}
 	}
 }

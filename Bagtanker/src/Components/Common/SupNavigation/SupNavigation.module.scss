@@ -10,8 +10,6 @@
 		display: flex;
 		list-style: none;
 		justify-content: space-around;
-		align-items: center;
-		text-align: center;
 		padding-top: 30px;
 		margin: 0 120px;
 
@@ -74,6 +72,12 @@
 	}
 }
 .active {
-	right: 0;
-	transition: 350ms;
+	color: $color-yellow !important;
+
+	&::after {
+		content: "\f0d8"; // Font Awesome kode for "arrow-up"
+		font-family: "Font Awesome 5 Free";
+		font-weight: 1000;
+		font-size: 40px;
+	}
 }

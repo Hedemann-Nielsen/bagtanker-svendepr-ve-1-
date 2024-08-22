@@ -6,36 +6,37 @@
 
 	.currentLocation {
 		margin-right: 8px;
-		font-weight: bold;
-		color: #6c757d;
+		color: black;
+		font-family: "Open Sans", sans-serif;
+		font-size: 16px;
+		font-weight: 300;
+		line-height: 21.79px;
+		text-align: left;
 	}
 
 	ul {
 		list-style: none;
 		display: flex;
-		padding: 0;
-		margin: 0;
-	}
 
-	.breadcrumbItem {
-		display: flex;
-		align-items: center;
+		.breadcrumbItem {
+			display: flex;
+			align-items: center;
+			a,
+			.item,
+			.separator {
+				text-decoration: none;
+				margin: 0 8px 0 0;
+				color: black;
 
-		a {
-			text-decoration: none;
-			color: #007bff;
-			&:hover {
-				text-decoration: underline;
+				font-family: "Open Sans", sans-serif;
+				font-size: 16px;
+				font-weight: 300;
+				line-height: 21.79px;
+				text-align: left;
+				&:hover {
+					text-decoration: underline;
+				}
 			}
-		}
-
-		.separator {
-			margin: 0 8px;
-			color: #6c757d;
-		}
-
-		span {
-			color: #6c757d;
 		}
 	}
 }

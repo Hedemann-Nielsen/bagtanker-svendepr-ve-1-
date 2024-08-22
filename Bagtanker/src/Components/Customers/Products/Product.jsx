@@ -49,10 +49,11 @@ export const Product = () => {
 						</div>
 						<p className={style.description}>{product.description}</p>
 						<p className={style.price}>Pris: {product.price},00 DKK</p>
+						<div className={style.likeWrapper}></div>
 						{/* <p>{product.comments}</p> */}
 					</div>
 
-					<Recipe product={product} />
+					<Recipe product={product} productId={product.id} />
 				</div>
 			) : (
 				<p>Produktet blev ikke fundet.</p>

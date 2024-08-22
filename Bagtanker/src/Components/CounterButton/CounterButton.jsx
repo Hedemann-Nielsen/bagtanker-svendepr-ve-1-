@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { CiHeart } from "react-icons/ci";
-import { useSupabase } from "../../Providers/SupabaseProvider"; // Sørg for at opdatere stien til SupabaseProvider
+import { useSupabase } from "../../Providers/SupabaseProvider";
 
 import style from "./CounterButton.module.scss";
 
@@ -55,10 +55,10 @@ export const CounterButton = ({ productId }) => {
 
 	return (
 		<div className={style.likeWrapper}>
+			<p>{count}</p>
 			<button onClick={handleClick}>
 				<CiHeart className={style.CiHeart} />
 			</button>
-			<p>{count}</p>
 		</div>
 	);
 };

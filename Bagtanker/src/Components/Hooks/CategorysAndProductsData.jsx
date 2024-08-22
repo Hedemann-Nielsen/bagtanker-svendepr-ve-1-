@@ -12,7 +12,7 @@ export const useCategorysAndProductsData = () => {
 					const { data, error } = await supabase
 						.from("category_product_rel") //henter fra relastionstabellen
 						.select(
-							"product_id(id, title, slug, image_id(filename)), category_id(title)"
+							"product_id(id, title, teaser, slug, image_id(filename)), category_id(title)"
 						);
 					// henter created_at, title, teaser, fra tabellen og filename fra images fordi de har en  foreginkey
 

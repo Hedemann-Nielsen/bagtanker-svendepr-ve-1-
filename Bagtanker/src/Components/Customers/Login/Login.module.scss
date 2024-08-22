@@ -139,3 +139,13 @@
 		}
 	}
 }
+
+@media (max-width: 768px) {
+	.loginWrapper {
+		.form {
+			input {
+				width: 80%;
+			}
+		}
+	}
+}

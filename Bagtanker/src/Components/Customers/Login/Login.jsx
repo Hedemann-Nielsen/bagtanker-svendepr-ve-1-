@@ -2,10 +2,11 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation } from "react-router-dom";
 import { useSupabase } from "../../../Providers/SupabaseProvider";
 import { useAuth } from "../../../Providers/AuthProvider";
-import globalStyle from "../../../Styles/GlobalStyles.module.scss";
-import style from "./Login.module.scss";
 import { useEffect, useState } from "react";
 import { PageWrapper } from "../../Common/Wrappers/PageWrapper";
+
+import globalStyle from "../../../Styles/GlobalStyles.module.scss";
+import style from "./Login.module.scss";
 
 export const Login = () => {
 	const { supabase } = useSupabase();

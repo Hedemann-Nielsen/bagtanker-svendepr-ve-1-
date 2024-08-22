@@ -5,14 +5,14 @@ import styles from "./Breadcrumb.module.scss";
 const Breadcrumb = ({ items }) => {
 	return (
 		<nav className={styles.breadcrumb}>
-			<span className={styles.currentLocation}>Du er her: </span>
+			<p className={styles.currentLocation}>Du er her: </p>
 			<ul>
 				{items.map((item, index) => (
 					<li key={index} className={styles.breadcrumbItem}>
 						{index < items.length - 1 ? (
 							<Link to={item.path}>{item.label}</Link>
 						) : (
-							<span>{item.label}</span>
+							<p className={styles.item}>{item.label}</p>
 						)}
 						{index < items.length - 1 && (
 							<span className={styles.separator}>/</span>

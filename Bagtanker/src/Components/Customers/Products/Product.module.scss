@@ -5,6 +5,7 @@
 	display: grid;
 	grid-template-columns: 2fr 1fr;
 	gap: 10px;
+
 	.productDetails {
 		.productTopGrid {
 			img {
@@ -28,9 +29,12 @@
 		.productTopGrid {
 			display: flex;
 			gap: 30px;
-
-			// display: grid;
-			// grid-template: 1fr 1fr;
 		}
+	}
+}
+
+@media (max-width: 767px) {
+	.productWrapper {
+		grid-template-columns: 1fr;
 	}
 }

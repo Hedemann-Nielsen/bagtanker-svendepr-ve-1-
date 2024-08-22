@@ -6,3 +6,12 @@
 	width: 100vw;
 	z-index: 100;
 }
+
+//mobil
+@media (max-width: 767px) {
+	.homeHeader {
+		img {
+			width: 50%;
+		}
+	}
+}

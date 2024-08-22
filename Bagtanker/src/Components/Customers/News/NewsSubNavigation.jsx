@@ -11,6 +11,15 @@ export const NewsSubNavigation = ({ onNewsSelect }) => {
 	const handleNewsClick = (news) => {
 		setSelectedNews(news);
 		onNewsSelect(news);
+		scrollToTop();
+	};
+
+	//funktion til at brugeren bliver sendt til toppen(sub menuen) af siden, hvor nyheden vises.
+	const scrollToTop = () => {
+		window.scrollTo({
+			top: 200, // Scroller til top af siden
+			behavior: "smooth", // Animeret scroll, for at brugeren bedre kan følge med i hvad der sker.
+		});
 	};
 
 	return (

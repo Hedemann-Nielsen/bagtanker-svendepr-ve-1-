@@ -1,0 +1,50 @@
+@use "../../../Styles/Helpers/Mixins" as *;
+@use "../../../Styles/Helpers/Variables" as *;
+
+.productsWrapper {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 30px;
+	.product {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 10px;
+
+		img {
+			width: 100%;
+			aspect-ratio: 1/1;
+			object-fit: cover;
+		}
+		figcaption {
+			color: black;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between; /* Placerer link i bunden */
+			color: black;
+			.prdouctInfo {
+				h2 {
+					font-size: 22px;
+					font-weight: 700;
+					font-family: "Open Sans", sans-serif;
+				}
+				p {
+					@include text;
+				}
+			}
+			.buttonWrapper {
+				display: flex;
+				justify-content: space-between;
+				a {
+					width: fit-content;
+				}
+			}
+		}
+	}
+}
+
+//pc
+@media (min-width: 992px) {
+	.productsWrapper {
+		grid-template-columns: 1fr 1fr;
+	}
+}

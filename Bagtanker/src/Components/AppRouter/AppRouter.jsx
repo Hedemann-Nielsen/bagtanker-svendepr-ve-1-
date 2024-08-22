@@ -10,16 +10,20 @@ import { News } from "../Customers/News/News.jsx";
 import { Categorys } from "../Customers/Products/Categorys.jsx";
 import { Product } from "../Customers/Products/Product.jsx";
 import { HomePage } from "../../Pages/HomePage.jsx";
+import { Contact } from "../Customers/Contact/Contact.jsx";
 
 export const AppRouter = () => {
 	return (
 		<Routes>
 			<Route index element={<HomePage />} />
 			<Route path="/home" element={<HomePage />} />
-			<Route path="/produkter" element={<ProductsPage />}>
-				<Route index element={<Product />} />
-				<Route path="/produkter/:produkt" element={<Product />} />
+
+			<Route path="/katogori" element={<ProductsPage />}>
+				<Route index element={<Categorys />} />
+				<Route path=":katogori" element={<Categorys />} />
+				<Route path=":katogori/:slug" element={<Product />} />
 			</Route>
+
 			<Route path="/login" element={<LoginPage />}>
 				<Route index element={<Login />} />
 				{/* <Route path="/login" element={<Login />} /> */}
@@ -31,7 +35,9 @@ export const AppRouter = () => {
 				<Route path=":id" element={<News />} />
 			</Route>
 
-			<Route path="/contact" element={<ContactPage />} />
+			<Route path="/contact" element={<ContactPage />}>
+				<Route index element={<Contact />} />
+			</Route>
 			<Route path="*" element={<FallbackPage />} />
 		</Routes>
 	);

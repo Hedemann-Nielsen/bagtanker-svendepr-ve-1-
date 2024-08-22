@@ -1,7 +1,8 @@
-import style from "./NewsTeaser.module.scss";
 import { NewsTeaserCard } from "./NewsTeaserCard.jsx";
 import { useNewsData } from "../../Hooks/NewsData.jsx";
 import { Link } from "react-router-dom";
+
+import style from "./NewsTeaser.module.scss";
 
 export const NewsTeaser = () => {
 	const newsTeaser = useNewsData();

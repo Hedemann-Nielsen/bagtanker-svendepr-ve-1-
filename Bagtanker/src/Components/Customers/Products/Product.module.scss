@@ -1,0 +1,36 @@
+@use "../../../Styles/Helpers/Mixins" as *;
+@use "../../../Styles/Helpers/variables" as *;
+
+.productWrapper {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	gap: 10px;
+	.productDetails {
+		.productTopGrid {
+			img {
+				width: 50%;
+				aspect-ratio: 1/1;
+				object-fit: cover;
+			}
+			p {
+				@include text;
+			}
+		}
+		.description {
+			@include text;
+			margin-top: 37px;
+		}
+		.price {
+			@include subtitle;
+			margin-top: 100px;
+		}
+
+		.productTopGrid {
+			display: flex;
+			gap: 30px;
+
+			// display: grid;
+			// grid-template: 1fr 1fr;
+		}
+	}
+}

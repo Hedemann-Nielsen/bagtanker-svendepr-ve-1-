@@ -1,0 +1,23 @@
+@use "../../Styles/Helpers/Mixins" as *;
+@use "../../Styles/Helpers/variables" as *;
+
+.likeWrapper {
+	display: flex;
+	button {
+		@include unbuttonize;
+		color: $color-darkgrey;
+
+		.CiHeart {
+			font-size: 40px;
+			color: $color-darkgrey;
+		}
+	}
+	p {
+		font-family: Open Sans;
+		font-size: 16px;
+		font-weight: 300;
+		color: $color-darkgrey;
+		margin-top: 8px;
+		margin-right: 10px;
+	}
+}

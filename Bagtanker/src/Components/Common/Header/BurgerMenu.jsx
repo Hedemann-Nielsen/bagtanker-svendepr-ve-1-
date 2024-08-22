@@ -20,7 +20,7 @@ export const BurgerMenu = () => {
 
 			<nav className={`${style.navMenu} ${isOpen && style.active}`}>
 				<ul>
-					<li className={style.rightAlign}>
+					<li className={style.rightAlign} key="0">
 						<Hamburger
 							toggled={isOpen}
 							toggle={setOpen}
@@ -31,18 +31,16 @@ export const BurgerMenu = () => {
 						/>
 					</li>
 					{MenuData &&
-						MenuData.map((item, index) => {
+						MenuData.map((item) => {
 							return (
-								<>
-									<li key={index}>
-										<NavLink
-											to={item.url}
-											onClick={() => setMobileMenuIsActive(!mobileMenuIsActive)}
-											className={style.navText}>
-											<span>{item.title}</span>
-										</NavLink>
-									</li>
-								</>
+								<li key={item.id}>
+									<NavLink
+										to={item.url}
+										onClick={() => setMobileMenuIsActive(!mobileMenuIsActive)}
+										className={style.navText}>
+										<span>{item.title}</span>
+									</NavLink>
+								</li>
 							);
 						})}
 				</ul>

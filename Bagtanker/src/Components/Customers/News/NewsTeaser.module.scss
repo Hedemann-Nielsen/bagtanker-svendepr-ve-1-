@@ -3,10 +3,10 @@
 
 .newsTeaser {
 	position: absolute;
-	top: 288px;
+	top: 200px;
 	left: 139px;
-	width: 40%;
-	height: 60%;
+	width: 60%;
+	height: 65%;
 	background-color: $color-darkgrey;
 	opacity: 80%;
 	border-radius: 8px;
@@ -28,15 +28,19 @@
 	width: 100%;
 	display: flex;
 	color: $color-background;
-	margin: 32px;
+	margin: 10px;
 	img {
-		width: 195px;
+		width: 10%;
+		height: 10%;
 		border: 1px solid $color-lightgray;
 		border-radius: 8px;
+		aspect-ratio: 1/1;
+		object-fit: cover;
 	}
 	figcaption {
 		margin-left: 32px;
-		width: 62%;
+		width: 80%;
+
 		h2 {
 			font-family: "Open Sans", sans-serif;
 			font-size: 16px;
@@ -59,7 +63,7 @@
 }
 
 //mobil
-@media (max-width: 600px) {
+@media (max-width: 1024px) {
 	.newsTeaser {
 		left: 50%;
 		transform: translateX(-50%);

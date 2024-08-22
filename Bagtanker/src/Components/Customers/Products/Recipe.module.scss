@@ -1,17 +1,16 @@
 @use "../../../Styles//Helpers/variables" as *;
 @use "../../../Styles//Helpers/mixins" as *;
 
-.newsSubNav {
+.recipeWrapper {
 	position: relative;
 	left: 0;
 	width: 100%;
-	top: 45%;
 	height: 600px;
 	padding: 0px 0px 278px 0px;
 	border-radius: 8px;
 	background-color: $color-lightgray;
 
-	.seeAlso {
+	h2 {
 		@include text;
 		height: 48px;
 		color: $color-background;
@@ -19,33 +18,28 @@
 		border-radius: 8px 8px 0 0;
 		background-color: $color-bluegrey;
 	}
-}
-
-.newsBox {
-	padding-left: 19px;
-	height: 84px;
-	border-bottom: solid 1px #b1b1b1;
-
-	h5 {
-		font-family: "Open Sans", sans-serif;
-		font-size: 16px;
-		font-weight: 300;
-		line-height: 21.79px;
-		padding-top: 9px;
-		color: $color-bluegrey;
+	.ingridientWrapper {
+		.ingridients {
+			display: flex;
+			border-bottom: solid 1px #b1b1b1;
+			padding-left: 19px;
+			p {
+				padding-top: 15px;
+				height: 48px;
+			}
+		}
+		.ingridients p:nth-child(2) {
+			padding: 15px 10px 15px 3px;
+		}
 	}
-
-	p {
-		font-family: "Open Sans", sans-serif;
-		font-size: 16px;
-		font-weight: 300;
-		line-height: 21.79px;
-		text-align: left;
-		color: black;
-	}
-
-	&.selected {
-		background-color: $color-greengold;
+	.ingridientWrapper > p {
+		border-bottom: solid 1px #b1b1b1;
+		height: 48px;
+		padding-top: 15px;
+		padding-left: 19px;
+		background-color: #d7d7d2;
+		width: 100%;
+		border-bottom: solid 1px #b1b1b1;
 	}
 }
 

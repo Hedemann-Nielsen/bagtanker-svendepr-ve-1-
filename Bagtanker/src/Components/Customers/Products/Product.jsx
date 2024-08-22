@@ -3,7 +3,7 @@ import { PageWrapper } from "../../Common/Wrappers/PageWrapper";
 import { useSupabase } from "../../../Providers/SupabaseProvider";
 import { useParams } from "react-router-dom";
 import style from "./Product.module.scss";
-// import { Recipe } from "./Recipe.jsx";
+import { Recipe } from "./Recipe.jsx";
 
 export const Product = () => {
 	const { slug } = useParams(); // Hent slug fra URL'en
@@ -36,7 +36,7 @@ export const Product = () => {
 		}
 	}, [slug, supabase]);
 
-	console.log(slug, product);
+	console.log(product);
 
 	return (
 		<PageWrapper title={product?.title}>
@@ -48,35 +48,15 @@ export const Product = () => {
 							<p>{product.teaser}</p>
 						</div>
 						<p className={style.description}>{product.description}</p>
-						<p className={style.price}>Pris: {product.price} DKK</p>
+						<p className={style.price}>Pris: {product.price},00 DKK</p>
 						{/* <p>{product.comments}</p> */}
 					</div>
-					<p>opskrift</p>
-					{/* <Recipe /> */}
+
+					<Recipe product={product} />
 				</div>
 			) : (
 				<p>Produktet blev ikke fundet.</p>
 			)}
 		</PageWrapper>
-		// <PageWrapper title={"produkter"}>
-		// 	{
-		// 		{product ? (
-		// 				<div>
-		// 					<div key={index}>
-		// 						<img src={product.image_id?.filename} alt={product.title} />
-		// 						<p>{product.products?.title}</p>
-		// 					</div>
-		// 					{/* description */}
-		// 					<p>{product.description}</p>
-		// 					{/* price */}
-		// 					<p>{product.price}</p>
-		// 					{/* comments */}
-		// 					<p>{product.comments}</p>
-		// 					{/* <Recipe /> */}
-		// 				</div>
-		// 			) : (
-		// 						<p>Produktet blev ikke fundet.</p>
-		// 					)}
-		// </PageWrapper>
 	);
 };

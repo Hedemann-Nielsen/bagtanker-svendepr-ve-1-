@@ -54,4 +54,14 @@ export const SubMenu = [
 		title: "rugbrød",
 		url: `/katogori/${convertLetters("rugbrød")}`,
 	},
+	{
+		id: 6,
+		title: "morgenbrød",
+		url: `/katogori/${convertLetters("morgenbrød")}`,
+	},
+	{
+		id: 7,
+		title: "grovbrød",
+		url: `/katogori/${convertLetters("grovbrød")}`,
+	},
 ];

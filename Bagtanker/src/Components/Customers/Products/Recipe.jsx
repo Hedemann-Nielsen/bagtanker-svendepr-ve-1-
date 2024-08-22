@@ -3,37 +3,33 @@ import style from "./Recipe.module.scss";
 // import { formatDate } from "../../Utils/DateUtils.jsx";
 import { useIngredientAndProductData } from "../../Hooks/IngredientAndProductData.jsx";
 
-export const Recipe = () => {
+export const Recipe = ({ product }) => {
 	const ingredientAndProductData = useIngredientAndProductData();
 	console.log("ingredientAndProductData:", ingredientAndProductData);
+	// console.log(product);
 
-	const newsData = useNewsData();
-	const allNewsDataRevers = newsData.reverse();
-	const [selectedNews, setSelectedNews] = useState(null);
+	const filteredData = ingredientAndProductData.filter(
+		(item) => item.product_id.id === product.id
+	);
 
-	const handleNewsClick = (news) => {
-		setSelectedNews(news);
-		onNewsSelect(news);
-	};
-
-	// ingredient from ingredients and amount from products
+	console.log("Filtered data:", filteredData);
+	console.log("Product:", product);
 
 	return (
-		<>
-			<p>Recepie</p>
-			<div className={style.newsSubNav}>
-				{recepieData.map((ingredient, index) => (
-					<div
-						key={index}
-						className={`${style.newsBox} ${
-							selectedNews === news ? style.selected : ""
-						}`}
-						onClick={() => handleNewsClick(news)}>
-						<h5>{formatDate(news.created_at)}</h5>
-						<p>{news.title}</p>
-					</div>
-				))}
+		<div className={style.recipeWrapper}>
+			<h2>Opskrift</h2>
+			<div className={style.ingridientWrapper}>
+				<p>Varighed: {product.duration} min</p>
+				<p>Antal: {product.amount} stk</p>
+				{filteredData &&
+					filteredData.map((ingridient, index) => (
+						<div key={index} className={style.ingridients}>
+							<p>{ingridient.amount}</p>
+							<p>{ingridient.unit_id.abbreviation}</p>
+							<p>{ingridient.ingredient_id.title}</p>
+						</div>
+					))}
 			</div>
-		</>
+		</div>
 	);
 };

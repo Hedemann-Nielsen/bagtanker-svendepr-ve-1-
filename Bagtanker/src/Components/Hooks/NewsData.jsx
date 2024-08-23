@@ -11,7 +11,7 @@ export const useNewsData = () => {
 				if (supabase) {
 					const { data, error } = await supabase
 						.from("news") //henter fra tabellen news
-						.select("*, images(filename)"); // henter created_at, title, teaser, fra tabellen og filename fra images fordi de har en  foreginkey
+						.select("*, images(filename)"); // henter alle kolonner fra tabellen og filename fra images fordi de har en  foreginkey
 
 					if (error) {
 						console.error(

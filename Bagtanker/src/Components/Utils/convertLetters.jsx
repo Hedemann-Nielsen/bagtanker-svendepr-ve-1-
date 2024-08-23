@@ -1,9 +1,4 @@
 export const convertLetters = (title) => {
-	// if (typeof title !== "string") {
-	// 	console.error("Title must be a string. Received:", title);
-	// 	return ""; // Returner en tom streng eller en standardværdi
-	// }
-
 	return title
 		.toLowerCase() // Ændre til små bogstaver
 		.replace(/[\u0300-\u036f]/g, "") // Fjern underlige tegn

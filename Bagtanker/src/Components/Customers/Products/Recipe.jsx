@@ -38,8 +38,8 @@ export const Recipe = ({ product, productId }) => {
 		(item) => item.product_id.id === product.id
 	);
 
-	console.log("Filtered data:", filteredProductData);
-	console.log("Product:", product.id);
+	// console.log("Filtered data:", filteredProductData);
+	// console.log("Product:", product.id);
 
 	return (
 		<div className={style.recipeWrapper}>

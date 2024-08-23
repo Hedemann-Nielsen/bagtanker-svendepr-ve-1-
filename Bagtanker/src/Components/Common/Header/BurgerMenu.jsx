@@ -10,6 +10,7 @@ export const BurgerMenu = () => {
 
 	return (
 		<>
+			{/* Burgemenu på siden kommer fra en npm pakke  */}
 			<Hamburger
 				toggled={isOpen}
 				toggle={setOpen}
@@ -21,6 +22,7 @@ export const BurgerMenu = () => {
 			<nav className={`${style.navMenu} ${isOpen && style.active}`}>
 				<ul>
 					<li key="0">
+						{/* Burgermenu på menuen, de 2 menuer har samme toggle navne, så de køre samtifig. Burgermenuen på siden vil være skjult af menuen som ligger ovenpå siden. */}
 						<Hamburger
 							toggled={isOpen}
 							toggle={setOpen}

@@ -35,6 +35,18 @@
 	}
 }
 
+.active {
+	color: $color-yellow !important;
+
+	&::after {
+		content: "\f0d8"; // Font Awesome kode for "arrow-up"
+		font-family: "Font Awesome 5 Free";
+		font-weight: 1000;
+		font-size: 40px;
+	}
+}
+
+//mobil menu
 .mobilNavWrapper {
 	background-color: $color-darkgrey;
 	display: flex;
@@ -70,14 +82,8 @@
 			}
 		}
 	}
-}
-.active {
-	color: $color-yellow !important;
-
-	&::after {
-		content: "\f0d8"; // Font Awesome kode for "arrow-up"
-		font-family: "Font Awesome 5 Free";
-		font-weight: 1000;
-		font-size: 40px;
+	&.activeMobil {
+		display: block;
+		right: 0;
 	}
 }

@@ -7,6 +7,7 @@ export const SupNavigation = () => {
 	return (
 		<nav className={style.supNavigation}>
 			<ul>
+				{/* henter data til menuen fra en statisk menu side. De hentes ikke fra databsen, for at jeg lettere kunne styre breadcrump delen */}
 				{SubMenu.map((link) => (
 					<li key={link.url}>
 						<NavLink

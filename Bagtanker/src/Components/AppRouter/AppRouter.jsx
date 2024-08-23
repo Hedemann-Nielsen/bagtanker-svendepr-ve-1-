@@ -16,6 +16,7 @@ export const AppRouter = () => {
 	return (
 		<Routes>
 			<Route index element={<HomePage />} />
+			<Route path="/" element={<HomePage />} />
 			<Route path="/home" element={<HomePage />} />
 
 			<Route path="/katogori" element={<ProductsPage />}>
@@ -42,85 +43,3 @@ export const AppRouter = () => {
 		</Routes>
 	);
 };
-// <Route path="/products" element={<ProductsPage />}>
-// 		<Route index element={<ProductsPage />} />
-// 		<Route path=":categorys" element={<Categorys />} />
-// 		<Route path=":categorys/:product" element={<Product />} />
-// 	</Route>
-
-//nested router
-// 			{
-// 				path: "/login",
-// 				element: <LoginPage />,
-// 				children: [
-// 					{
-// 						path: "/login",
-// 						element: <Login />,
-// 					},
-// 					{
-// 						path: "/login/createUser",
-// 						element: <CreateUser />,
-// 					},
-// 				],
-
-// export const routes = createBrowserRouter([
-// 	{
-// 		path: "/",
-// 		element: <HomeLayout />,
-// 		children: [
-// 			{
-// 				index: true,
-// 				element: <HomePage />,
-// 			},
-// 		],
-// 	},
-// 	{
-// 		path: "/news",
-// 		element: <DefaultLayout />,
-// 		children: [
-// 			{
-// 				index: true,
-// 				element: <NewsPage />,
-// 			},
-// 			// nested router
-// 			{
-// 				path: "products",
-// 				element: <ProductsPage />,
-// 				children: [
-// 					{
-// 						path: ":categorys",
-// 						element: <Categorys />,
-// 					},
-// 					{
-// 						path: ":categorys/:product",
-// 						element: <Product />,
-// 					},
-// 				],
-// 			},
-// 			{
-// 				path: "/contact",
-// 				element: <ContactPage />,
-// 			},
-// 			//nested router
-// 			{
-// 				path: "/login",
-// 				element: <LoginPage />,
-// 				children: [
-// 					{
-// 						path: "/login",
-// 						element: <Login />,
-// 					},
-// 					{
-// 						path: "/login/createUser",
-// 						element: <CreateUser />,
-// 					},
-// 				],
-// 			},
-
-// 			{
-// 				path: "/*",
-// 				element: <FallbackPage />,
-// 			},
-// 		],
-// 	},
-// ]);

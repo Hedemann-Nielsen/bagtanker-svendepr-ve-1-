@@ -5,14 +5,14 @@ import { Link } from "react-router-dom";
 import style from "./NewsTeaser.module.scss";
 
 // Funktion til at formatere datoen
-// const formatDate = (dateString) => {
-// 	const date = new Date(dateString);
-// 	return new Intl.DateTimeFormat("da-DK", {
-// 		day: "numeric",
-// 		month: "long",
-// 		year: "numeric",
-// 	}).format(date);
-// };
+const formatDate = (dateString) => {
+	const date = new Date(dateString);
+	return new Intl.DateTimeFormat("da-DK", {
+		day: "numeric",
+		month: "long",
+		year: "numeric",
+	}).format(date);
+};
 
 export const MobilNewsTeaser = () => {
 	const { supabase } = useSupabase();
@@ -47,29 +47,13 @@ export const MobilNewsTeaser = () => {
 		console.log(newsData[0]);
 	}, [supabase]);
 
-	// Hent billednavnet med filtypenavn
-	// const fullFileName = newsData[0].images.filename.substring(
-	// 	newsData[0].images.filename.lastIndexOf("/") + 1
-	// );
-
-	// // Fjern filtypenavnet (.jpg eller lignende)
-	// const fileNameWithoutExtension = fullFileName
-	// 	.split(".")
-	// 	.slice(0, -1)
-	// 	.join(".");
-
-	// console.log(fileNameWithoutExtension);
-
 	return (
 		<section className={style.MobilnewsTeaser}>
 			<h1>Nyheder</h1>
 
 			<Link to="/news">
 				<figure className={style.newsTeaserCard}>
-					<img
-					// src={newsData[0].images.filename}
-					// alt={fileNameWithoutExtension}
-					/>
+					<img />
 					<figcaption>
 						<h2>{formatDate(newsData.created_at)}</h2>
 						<h3>{newsData.title}</h3>

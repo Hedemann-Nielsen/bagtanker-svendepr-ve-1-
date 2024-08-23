@@ -3,14 +3,13 @@ import { useEffect, useMemo, useState } from "react";
 import { useNewsData } from "../../Hooks/NewsData.jsx";
 import { NewsSubNavigation } from "./NewsSubNavigation.jsx";
 import { formatDate } from "../../Utils/DateUtils.jsx";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import style from "./News.module.scss";
 
 export const News = ({ onDataLoaded }) => {
 	const newsData = useNewsData();
 	const { newsId } = useParams(); // Hent newsId fra URL'en
-	const location = useLocation(); // Hent den nuværende URL-location
 	const [selectedNews, setSelectedNews] = useState(null);
 
 	useEffect(() => {

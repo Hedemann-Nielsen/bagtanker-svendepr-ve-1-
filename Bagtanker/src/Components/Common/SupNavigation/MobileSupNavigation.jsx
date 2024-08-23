@@ -10,6 +10,7 @@ export const MobileSupNavigation = () => {
 	return (
 		<>
 			<div className={style.mobilNavWrapper}>
+				{/* brugermenu fra react npm pakke */}
 				<Hamburger
 					toggled={isOpen}
 					toggle={setOpen}
@@ -18,16 +19,13 @@ export const MobileSupNavigation = () => {
 					color="#fff"
 				/>
 
-				<nav className={`${style.navMobilMenu} ${isOpen && style.active}`}>
+				<nav className={`${style.navMobilMenu} ${isOpen && style.activeMobil}`}>
 					<ul>
 						{SubMenu &&
 							SubMenu.map((link) => {
 								return (
 									<li key={link.id}>
-										<NavLink
-											to={link.url}
-											onClick={() => setMobileMenuIsActive(!mobileMenuIsActive)}
-											className={style.navText}>
+										<NavLink to={link.url} className={style.navText}>
 											<span>{link.title}</span>
 										</NavLink>
 									</li>

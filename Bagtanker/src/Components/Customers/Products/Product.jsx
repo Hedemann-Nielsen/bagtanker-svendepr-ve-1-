@@ -4,6 +4,7 @@ import { useSupabase } from "../../../Providers/SupabaseProvider";
 import { useParams } from "react-router-dom";
 import style from "./Product.module.scss";
 import { Recipe } from "./Recipe.jsx";
+import { Comments } from "./Comments.jsx";
 
 export const Product = () => {
 	const { slug } = useParams(); // Hent slug fra URL'en
@@ -36,7 +37,7 @@ export const Product = () => {
 		}
 	}, [slug, supabase]);
 
-	// console.log(product);
+	console.log(product, "produkt");
 
 	return (
 		<PageWrapper title={product?.title}>
@@ -50,10 +51,10 @@ export const Product = () => {
 						<p className={style.description}>{product.description}</p>
 						<p className={style.price}>Pris: {product.price},00 DKK</p>
 						<div className={style.likeWrapper}></div>
-						{/* <p>{product.comments}</p> */}
 					</div>
 
 					<Recipe product={product} productId={product.id} />
+					<Comments product_ID={product.id} />
 				</div>
 			) : (
 				<p>Produktet blev ikke fundet.</p>

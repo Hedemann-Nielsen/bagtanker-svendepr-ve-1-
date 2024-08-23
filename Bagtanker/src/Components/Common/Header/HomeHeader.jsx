@@ -1,5 +1,5 @@
-import logo from "../../Assets/logo/Logo.png";
-import { BurgerMenu } from "../Common/Header/BurgerMenu";
+import logo from "../../../Assets/logo/Logo.png";
+import { BurgerMenu } from "./BurgerMenu";
 
 import style from "./HomeLayout.module.scss";
 

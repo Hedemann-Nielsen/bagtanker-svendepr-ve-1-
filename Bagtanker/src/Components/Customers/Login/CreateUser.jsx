@@ -1,10 +1,11 @@
 import { useForm } from "react-hook-form";
 import { useSupabase } from "../../../Providers/SupabaseProvider";
 import { useNavigate } from "react-router-dom";
-import globalStyle from "../../../Styles/GlobalStyles.module.scss";
-import style from "./Login.module.scss";
 import { useState } from "react";
 import { PageWrapper } from "../../Common/Wrappers/PageWrapper";
+
+import globalStyle from "../../../Styles/GlobalStyles.module.scss";
+import style from "./Login.module.scss";
 
 export const CreateUser = () => {
 	const { supabase } = useSupabase();
@@ -32,7 +33,6 @@ export const CreateUser = () => {
 		try {
 			const { data, error } = await supabase.auth.signUp({
 				password,
-
 				email,
 			});
 			if (error) {
@@ -63,7 +63,9 @@ export const CreateUser = () => {
 					{...register("email", { required: true })}
 				/>
 				{errors.email && (
-					<span className={style.errorMessage}>Dette felt er påkrævet</span>
+					<span className={globalStyle.errorMessage}>
+						Dette felt er påkrævet
+					</span>
 				)}
 				<input
 					className={globalStyle.input}
@@ -72,7 +74,9 @@ export const CreateUser = () => {
 					{...register("display_name", { required: true })}
 				/>
 				{errors.name && (
-					<span className={style.errorMessage}>Dette felt er påkrævet</span>
+					<span className={globalStyle.errorMessage}>
+						Dette felt er påkrævet
+					</span>
 				)}
 
 				<input
@@ -83,7 +87,9 @@ export const CreateUser = () => {
 					{...register("phone", { required: true })}
 				/>
 				{errors.phoneNumber && (
-					<span className={style.errorMessage}>Dette felt er påkrævet</span>
+					<span className={globalStyle.errorMessage}>
+						Dette felt er påkrævet
+					</span>
 				)}
 
 				<input
@@ -93,7 +99,9 @@ export const CreateUser = () => {
 					{...register("password", { required: true })}
 				/>
 				{errors.password && (
-					<span className={style.errorMessage}>Dette felt er påkrævet</span>
+					<span className={globalStyle.errorMessage}>
+						Dette felt er påkrævet
+					</span>
 				)}
 				<input
 					className={globalStyle.input}
@@ -104,7 +112,7 @@ export const CreateUser = () => {
 				{errors.confirmPassword && <span>Dette felt er påkrævet</span>}
 				<div>
 					{errorMessage && (
-						<span className={style.errorMessage}>{errorMessage}</span>
+						<span className={globalStyle.errorMessage}>{errorMessage}</span>
 					)}
 				</div>
 

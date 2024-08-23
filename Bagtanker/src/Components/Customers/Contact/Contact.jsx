@@ -1,23 +1,54 @@
-import React from "react";
+import { useState } from "react";
 import { PageWrapper } from "../../Common/Wrappers/PageWrapper";
 import { useForm } from "react-hook-form";
-import { useUpdateContactMessage } from "../../Hooks/UpdateContactMessage";
+import { useSupabase } from "../../../Providers/SupabaseProvider";
 import globalStyle from "../../../Styles/Globalstyles.module.scss";
 import style from "./Contact.module.scss";
 
 export const Contact = () => {
 	const { register, handleSubmit, reset } = useForm();
-	const { updateContactMessage } = useUpdateContactMessage(); // Brug hook her
+	const { supabase } = useSupabase(); // Hent supabase instansen
+	const [message, setMessage] = useState(""); // Til fejlhåndtering og beskeder
 
-	const handleSendMessage = async (data) => {
-		// Kalder updateContactMessage med data fra formularen
-		const response = await updateContactMessage(data);
-		if (response) {
-			// Nulstil formen efter succesfuld indsendelse
-			reset();
-			alert("Beskeden er sendt!");
-		} else {
-			alert("Der opstod en fejl. Prøv igen.");
+	const updateContactMessage = async ({ name, email, message }) => {
+		try {
+			if (supabase) {
+				const { data, error } = await supabase
+					.from("messages") // Navn på tabellen
+					.insert([{ name, email, message }]); // Indsætter beskeden i tabellen
+
+				if (error) {
+					console.error(
+						"Fejl ved indsættelse af data i updateContactMessage:",
+						error.message
+					);
+					return { success: false, message: error.message }; // Returnér fejlmeddelelse
+				} else {
+					return { success: true, data }; // Returnér succes
+				}
+			}
+		} catch (error) {
+			console.error("Generel fejl:", error.message);
+			return { success: false, message: error.message }; // Returnér generel fejlmeddelelse
+		}
+	};
+
+	const handleSendMessage = async (e) => {
+		e.preventDefault();
+
+		try {
+			// Kalder updateContactMessage med data fra formularen
+			const response = await updateContactMessage(e);
+
+			if (response.success) {
+				// Nulstil formen efter succesfuld indsendelse
+				reset();
+				alert("Beskeden er sendt!");
+			}
+		} catch (error) {
+			// Håndterer eventuelle fejl, der opstår under kaldet til updateContactMessage
+			console.error("Der opstod en fejl:", error.message);
+			alert("Der opstod en fejl. Prøv igen."); // Opdater besked
 		}
 	};
 
@@ -52,6 +83,8 @@ export const Contact = () => {
 							</button>
 						</div>
 					</form>
+					{message && <p className={globalStyle.message}>{message}</p>}{" "}
+					{/* Vis besked */}
 				</div>
 				<div className={style.cart}>
 					<iframe

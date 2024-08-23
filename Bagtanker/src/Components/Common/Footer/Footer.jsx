@@ -9,7 +9,6 @@ import globalStyle from "../../../Styles/GlobalStyles.module.scss";
 export const Footer = () => {
 	const [modalIsOpen, setModalIsOpen] = useState(false);
 	const { supabase } = useSupabase();
-	const [email, setEmail] = useState("");
 	const [message, setMessage] = useState("");
 
 	const {
@@ -19,13 +18,16 @@ export const Footer = () => {
 		reset,
 	} = useForm();
 
+	//sender data til newsletter_emails tabellen og tilføjer den indtastede e-mail
 	const PostOnSubmit = async (data) => {
 		const { error } = await supabase
 			.from(`newsletter_emails`)
 			.insert([{ email: data.email }]);
 
+		//setter en besked, hvis der opstår en fejl.
 		if (error) {
 			setMessage(`fejl ved indesendelse af email:` + error.message);
+			//hvis data blev sendt korrek til api åbner en modal med besked og formularen resettes
 		} else {
 			setMessage(`e-mail indsendt succesfuldt!`);
 			openModal();

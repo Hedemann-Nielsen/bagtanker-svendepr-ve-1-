@@ -21,6 +21,7 @@ export const SlideShow = () => {
 
 	return (
 		<section className={style.slideshow}>
+			{/* looper iggenem arrayet af billder (images)*/}
 			{images &&
 				images.map((image, index) => (
 					<div
@@ -30,6 +31,7 @@ export const SlideShow = () => {
 						}`}
 						style={{ backgroundImage: `url(${image})` }}></div>
 				))}
+			{/* placere en dot for hvert billede, som også henviser til billedet */}
 			<div className={style.dots}>
 				{images &&
 					images.map((_, index) => (

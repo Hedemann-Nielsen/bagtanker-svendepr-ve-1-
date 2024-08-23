@@ -1,0 +1,42 @@
+@use "../../../Styles/Helpers/Mixins" as *;
+@use "../../../Styles/Helpers/Variables" as *;
+
+.Comments {
+	h2 {
+		@include subtitle;
+	}
+	details > summary {
+		@include text;
+	}
+	details > input {
+		margin: 10px 0;
+		width: 490px;
+		height: 48px;
+		top: 20px;
+		left: 20px;
+		padding: 13px 0 13px 23px;
+		border-radius: 5px;
+		margin-top: 15px;
+		display: block;
+		background-color: #ececec;
+		font-family: "Open Sans", sans-serif;
+	}
+	details > textarea {
+		width: 490px;
+		background-color: #ececec;
+		height: 191px;
+		padding: 13px;
+	}
+	details > textarea::placeholder {
+		font-family: "Open Sans", sans-serif;
+	}
+	.commentWrapper {
+		display: grid;
+		grid-template-columns: 1fr 4fr;
+		margin: auto;
+		justify-content: center;
+		align-items: center;
+		border-bottom: solid 1px black;
+		padding: 25px 0;
+	}
+}

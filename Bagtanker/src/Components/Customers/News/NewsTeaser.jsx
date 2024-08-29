@@ -6,7 +6,7 @@ import style from "./NewsTeaser.module.scss";
 
 export const NewsTeaser = () => {
 	const newsTeaser = useNewsData();
-	console.log(newsTeaser, "newsTeaser");
+	// console.log(newsTeaser, "newsTeaser");
 
 	// Få de sidste 3 elementer fra arrayet
 	const lastThreeNewsTeasers = newsTeaser.slice(-3).reverse();

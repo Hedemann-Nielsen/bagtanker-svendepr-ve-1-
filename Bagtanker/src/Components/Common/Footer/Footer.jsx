@@ -67,6 +67,9 @@ export const Footer = () => {
 				</p>
 				<form onSubmit={handleSubmit(PostOnSubmit)}>
 					<input
+						className={`${globalStyle.input} ${
+							errors.email ? globalStyle.errorInput : ""
+						}`}
 						type="email"
 						placeholder="Indtast email"
 						{...register("email", {

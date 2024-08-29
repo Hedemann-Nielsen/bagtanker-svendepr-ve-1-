@@ -1,17 +1,15 @@
 @use "../../../Styles//Helpers/Mixins" as *;
+
 .selectedNews {
 	width: 100%;
 	padding-bottom: 50px;
 	p {
 		@include text;
+		white-space: pre-line;
 	}
 	img {
 		width: 100%;
 	}
-}
-
-.preformatted-text {
-	white-space: pre-line;
 }
 
 // PC

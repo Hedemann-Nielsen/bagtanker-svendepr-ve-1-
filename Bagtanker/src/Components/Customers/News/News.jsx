@@ -9,14 +9,16 @@ import style from "./News.module.scss";
 
 export const News = ({ onDataLoaded }) => {
 	const newsData = useNewsData();
-	const { newsId } = useParams(); // Hent newsId fra URL'en
+	const { id } = useParams(); // Hent newsId fra URL'en
 	const [selectedNews, setSelectedNews] = useState(null);
 
 	useEffect(() => {
 		if (newsData.length > 0) {
-			if (newsId) {
+			console.log(newsData.length, "news");
+			console.log(id);
+			if (id) {
 				// Hvis der er et newsId i URL'en, find den matchende nyhed
-				const news = newsData.find((item) => item.id === newsId);
+				const news = newsData.find((item) => item.id === id);
 				setSelectedNews(news || newsData[0]);
 			} else {
 				// Hvis der ikke er et newsId, vis den seneste nyhed
@@ -29,7 +31,7 @@ export const News = ({ onDataLoaded }) => {
 				onDataLoaded(newsData);
 			}
 		}
-	}, [newsData, newsId, onDataLoaded]);
+	}, [newsData, id, onDataLoaded]);
 
 	return (
 		<>

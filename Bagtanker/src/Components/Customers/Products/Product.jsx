@@ -54,7 +54,7 @@ export const Product = () => {
 					</div>
 
 					<Recipe product={product} productId={product.id} />
-					<Comments product_ID={product.id} />
+					<Comments productId={product.id} />
 				</div>
 			) : (
 				<p>Produktet blev ikke fundet.</p>
